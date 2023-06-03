@@ -1,12 +1,8 @@
-import React from 'react';
-import { useParams } from 'react-router';
-
-import { ICoin } from '../types/coin';
+import React from "react";
+import { useParams } from "react-router";
 
 function Coin() {
-	const { id } = useParams<ICoin>();
-
-	return <div>Coin: {id}</div>;
+  return <div>Coin:</div>;
 }
 
 export default Coin;
