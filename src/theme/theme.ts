@@ -8,7 +8,7 @@ const theme: DefaultTheme = {
 	primary: 'rgb(28, 36, 69)',
 	secondary: 'rgb(243, 48, 87)',
 	yellow: 'rgb(255, 219, 109)',
-	bgc: '#fff;',
+	bgc: '#fff',
 };
 
 export default theme;

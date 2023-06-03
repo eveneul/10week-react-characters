@@ -49,6 +49,6 @@ table {
 
 
 body {
-  background-color: ${(props) => props.theme.primary}
+  background-color: ${(props) => props.theme.bgc}
 }
 `;
