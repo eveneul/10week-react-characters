@@ -26,6 +26,12 @@ function Coins() {
         <List>
           {coins.slice(0, 10).map((item, index) => (
             <Item key={index}>
+              <div className="img-box">
+                <img
+                  src={`https://coinicons-api.vercel.app/api/icon/${item.symbol.toLocaleLowerCase()}`}
+                  alt={item.name}
+                />
+              </div>
               <h2 className="title">{item.name}</h2>
               <span className="rank">{item.rank}</span>
             </Item>
