@@ -12,12 +12,20 @@ export const List = styled.ul`
 
 export const Item = styled.li`
   width: calc((100% / 3) - 10px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background-color: ${(props) => props.theme.white};
   border-radius: 8px;
+
+  &:nth-of-type(n + 4) {
+    margin-top: 10px;
+  }
+
+  a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+  }
 
   .img-box {
     width: 100px;
