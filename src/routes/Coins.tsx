@@ -4,18 +4,16 @@ import { Item, List } from "../components/ui/list";
 import { Title } from "../components/ui/Text";
 import { ICoin } from "../types/coin";
 import { Link } from "react-router-dom";
+import { useQuery } from "react-query";
+import { coinsAPI } from "../api/coins";
 
 function Coins() {
   const [coins, setCoins] = useState<ICoin[]>([]);
 
-  useEffect(() => {
-    (async () => {
-      const res = await fetch(`https://api.coinpaprika.com/v1/coins`);
-      const json = await res.json();
-      setCoins(json);
-    })();
-  }, []);
-
+  const { isFetching, isLoading, data } = useQuery<ICoin[]>(
+    "coinList",
+    coinsAPI
+  );
   return (
     <>
       <Header>
@@ -23,7 +21,7 @@ function Coins() {
       </Header>
       <Container>
         <List>
-          {coins.slice(0, 10).map((item, index) => (
+          {data?.slice(0, 10).map((item, index) => (
             <Item key={index}>
               <Link
                 to={{

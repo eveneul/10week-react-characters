@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from "react-query";
 import Router from "./Router";
+import { ReactQueryDevtools } from "react-query/devtools";
 
 import { GlobalStyle } from "./theme/globalStyle";
 
@@ -10,6 +11,7 @@ function App() {
     <>
       <QueryClientProvider client={queryClient}>
         <Router />
+        <ReactQueryDevtools initialIsOpen={true} />
       </QueryClientProvider>
     </>
   );

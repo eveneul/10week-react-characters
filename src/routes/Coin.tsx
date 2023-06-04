@@ -8,30 +8,24 @@ import {
   ICoinParams,
 } from "../types/coin";
 import { Container, Header } from "../components/ui/Container";
+import { useQuery } from "react-query";
+import { coinDetailAPI, coinPriceAPI } from "../api/coins";
 
 function Coin() {
   const { id } = useParams<ICoinParams>();
   const location = useLocation();
   const { state } = useLocation<ICoinLocation>();
-  const [coin, setCoin] = useState<ICoinDetail>();
-  const [price, setPrice] = useState<ICoinDetailPrice>();
+  // const [price, setPrice] = useState<ICoinDetailPrice>();
 
-  useEffect(() => {
-    (async () => {
-      const res = await (
-        await fetch(`https://api.coinpaprika.com/v1/coins/${id}`)
-      ).json();
+  const { isLoading: coinLoading, data: coin } = useQuery<ICoinDetail>(
+    ["coinDatail", id],
+    () => coinDetailAPI(id)
+  );
 
-      const priceData = await (
-        await fetch(`https://api.coinpaprika.com/v1/tickers/${id}`)
-      ).json();
-
-      setCoin(res);
-      setPrice(priceData);
-
-      console.log(priceData, "priceData");
-    })();
-  }, []);
+  const { isLoading: priceLoading, data: price } = useQuery<ICoinDetailPrice>(
+    ["coinPrice", id],
+    () => coinPriceAPI(id)
+  );
 
   return (
     <>
