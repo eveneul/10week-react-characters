@@ -14,8 +14,6 @@ export default function CharacterDetail() {
     () => charactersDetailAPI(characterNum)
   );
 
-  console.log(character);
-
   return (
     <>
       <Header>
