@@ -1,25 +1,34 @@
 import styled from "styled-components";
 
 export const List = styled.ul`
-  width: 700px;
-  margin: 0 auto;
-  padding: 30px 0;
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
-  background-color: ${(props) => props.theme.primary};
+  flex-wrap: wrap;
+  gap: 30px;
 `;
 
 export const Item = styled.li`
-  width: calc((100% / 3) - 10px);
+  /* width: calc(100% / 4); */
   background-color: ${(props) => props.theme.white};
-  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
 
-  &:nth-of-type(n + 4) {
-    margin-top: 10px;
+  transition: all 0.4s;
+
+  &:hover {
+    box-shadow: 5px 8px 19px -7px rgba(0, 0, 0, 0.1);
+    background-color: ${(props) => props.theme.primary};
+
+    .title-box {
+      .title {
+        color: ${(props) => props.theme.white};
+      }
+    }
   }
 
   a {
+    padding: 24px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,24 +37,21 @@ export const Item = styled.li`
   }
 
   .img-box {
-    width: 100px;
-    height: 100px;
+    width: 280px;
+    height: 280px;
+    aspect-ratio: 1/ 1;
     margin-bottom: 10px;
-  }
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
-  .title {
-    font-size: 24px;
-    color: ${(props) => props.theme.primary};
-    margin-bottom: 10px;
-  }
-
-  .rank {
-    font-size: 14px;
-    color: ${(props) => props.theme.secondary};
+  .title-box {
+    .title {
+      color: ${(props) => props.theme.primary};
+    }
   }
 `;

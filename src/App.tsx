@@ -3,6 +3,8 @@ import Router from "./Router";
 import { ReactQueryDevtools } from "react-query/devtools";
 
 import { GlobalStyle } from "./theme/globalStyle";
+import { ThemeProvider } from "styled-components";
+import theme from "./theme/theme";
 
 function App() {
   const queryClient = new QueryClient();

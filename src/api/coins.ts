@@ -15,3 +15,7 @@ export async function coinPriceAPI(id: string) {
     res.json()
   );
 }
+
+// export async function characters() {
+
+// }
