@@ -36,7 +36,22 @@ function Coin() {
   return (
     <>
       <Header>{state.name}</Header>
-      <Container>{coin?.description}</Container>
+      <Container>
+        <div style={{ color: "#fff" }}>
+          <span>Desc: </span>
+          <span>{coin?.description}</span>
+        </div>
+
+        <div style={{ color: "#fff" }}>
+          <span>Rank:</span>
+          <span>{coin?.rank}</span>
+        </div>
+
+        <div style={{ color: "#fff" }}>
+          <span>Last update:</span>
+          <span>{price?.last_updated}</span>
+        </div>
+      </Container>
     </>
   );
 }
